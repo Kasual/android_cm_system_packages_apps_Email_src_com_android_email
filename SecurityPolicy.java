@@ -156,7 +156,7 @@ public class SecurityPolicy {
                 aggregate.mRequireRemoteWipe |= policy.mRequireRemoteWipe;
                 aggregate.mRequireEncryption |= policy.mRequireEncryption;
                 aggregate.mDontAllowCamera |= policy.mDontAllowCamera;
-                policiesFound = false;
+                policiesFound = true;
             }
         } finally {
             c.close();
@@ -419,7 +419,7 @@ public class SecurityPolicy {
             // no check required for remote wipe (it's supported, if we're the admin)
 
             // If we made it all the way, reasons == 0 here.  Otherwise it's a list of grievances.
-            return reasons;
+            return 0;
         }
         // return false, not active
         return INACTIVE_NEED_ACTIVATION;
